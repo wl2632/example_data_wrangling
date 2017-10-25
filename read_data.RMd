@@ -14,3 +14,25 @@ library(tidyverse)
 library(rvest)
 library(httr)
 ```
+
+```{r}
+url = "http://samhda.s3-us-gov-west-1.amazonaws.com/s3fs-public/field-uploads/2k15StateFiles/NSDUHsaeShortTermCHG2015.htm"
+
+drug_use_xml = read_html(url)
+```
+
+
+That's step one!
+
+```{r}
+drug_use_xml %>%
+  html_nodes(css = "table")
+
+
+```
+
+Got the tables
+```{r}
+table_marj = (drug_use_xml %>% html_nodes(css = "table"))[[1]] %>%
+  html_table() 
+```
