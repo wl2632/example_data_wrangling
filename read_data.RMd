@@ -36,3 +36,10 @@ Got the tables
 table_marj = (drug_use_xml %>% html_nodes(css = "table"))[[1]] %>%
   html_table() 
 ```
+
+```{r}
+nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.csv") %>%
+    content("parsed")
+
+
+```
