@@ -3,7 +3,7 @@ title: "reading_data"
 author: "Weijie Liu"
 date: "October 25, 2017"
 output: html_document
-runtime: shiny
+
 ---
 
 
@@ -34,8 +34,36 @@ drug_use_xml %>%
 Got the tables
 ```{r}
 table_marj = (drug_use_xml %>% html_nodes(css = "table"))[[1]] %>%
-  html_table() 
+  html_table() %>%
+  .[-1,] %>%
+  as_tibble()
+
+table_marj
 ```
+
+## Practice!!!!!!!
+
+```{r}
+url = "https://www.bestplaces.net/cost_of_living/city/new_york/new_york"
+nyc_cost = read_html(url)
+
+```
+
+```{r}
+nyc_cost_table = (nyc_cost %>%
+  html_nodes(css = "table"))[[2]] %>%
+  html_table(header = TRUE)
+  
+
+```
+
+
+
+
+
+
+
+
 
 ```{r}
 nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.csv") %>%
