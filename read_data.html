@@ -11,7 +11,6 @@
 
 <meta name="author" content="Weijie Liu" />
 
-<meta name="date" content="2017-10-25" />
 
 <title>reading_data_II</title>
 
@@ -119,7 +118,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">reading_data_II</h1>
 <h4 class="author"><em>Weijie Liu</em></h4>
-<h4 class="date"><em>October 25, 2017</em></h4>
+<h4 class="date"><em>October 23&amp;25, 2017</em></h4>
 
 </div>
 
@@ -257,6 +256,30 @@ toothbrush_df = data.frame(
   content(&quot;text&quot;) %&gt;%
   jsonlite::fromJSON() %&gt;%
   as_tibble()</code></pre>
+</div>
+<div id="brfss" class="section level2">
+<h2>BRFSS</h2>
+<pre class="r"><code>brfss = GET(&quot;https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.csv?accessType=DOWNLOAD&quot;) %&gt;%
+  content(&quot;parsed&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   YearStart = col_integer(),
+##   YearEnd = col_integer(),
+##   Data_Value = col_double(),
+##   Data_Value_Alt = col_double(),
+##   Low_Confidence_Limit = col_double(),
+##   High_Confidence_Limit = col_double(),
+##   Sample_Size = col_integer()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>brfss_json = GET(&quot;https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.json?accessType=DOWNLOAD&quot;) %&gt;%
+  content(&quot;text&quot;)</code></pre>
+</div>
+<div id="pokemon" class="section level2">
+<h2>Pokemon</h2>
+<pre class="r"><code>poke = GET(&quot;http://pokeapi.co/api/v2/pokemon/1&quot;) %&gt;%
+  content()</code></pre>
 </div>
 
 

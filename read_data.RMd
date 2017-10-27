@@ -1,7 +1,7 @@
 ---
 title: "reading_data_II"
 author: "Weijie Liu"
-date: "October 25, 2017"
+date: "October 23&25, 2017"
 output: html_document
 
 ---
@@ -13,6 +13,9 @@ output: html_document
 library(tidyverse)
 library(rvest)
 library(httr)
+library(haven)
+library(stringr)
+library(forcats)
 ```
 
 ```{r}
@@ -121,14 +124,22 @@ nyc_water_json = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.json") %>
 
 ```
 
+
+## BRFSS
+
 ```{r}
+brfss = GET("https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.csv?accessType=DOWNLOAD") %>%
+  content("parsed")
 
-
-
+brfss_json = GET("https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.json?accessType=DOWNLOAD") %>%
+  content("text")
+  
 ```
 
+## Pokemon
 
 ```{r}
-
+poke = GET("http://pokeapi.co/api/v2/pokemon/1") %>%
+  content()
 
 ```
