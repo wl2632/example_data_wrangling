@@ -1,5 +1,5 @@
 ---
-title: "reading_data"
+title: "reading_data_II"
 author: "Weijie Liu"
 date: "October 25, 2017"
 output: html_document
@@ -97,7 +97,11 @@ toothbrush_df = data.frame(
 
 
 
+## APIs
 
+### nyc_water
+
+https://data.cityofnewyork.us/resource/waf7-5gvc.csv
 
 
 ```{r}
