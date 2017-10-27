@@ -241,7 +241,7 @@ toothbrush_df = data.frame(
 <h3>nyc_water</h3>
 <p><a href="https://data.cityofnewyork.us/resource/waf7-5gvc.csv" class="uri">https://data.cityofnewyork.us/resource/waf7-5gvc.csv</a></p>
 <pre class="r"><code>nyc_water = GET(&quot;https://data.cityofnewyork.us/resource/waf7-5gvc.csv&quot;) %&gt;%
-    content(&quot;parsed&quot;)</code></pre>
+  content(&quot;parsed&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   new_york_city_population = col_integer(),
@@ -249,29 +249,14 @@ toothbrush_df = data.frame(
 ##   per_capita_gallons_per_person_per_day = col_integer(),
 ##   year = col_integer()
 ## )</code></pre>
-<p>Getting the data using JSON</p>
-<pre class="r"><code>nyc_water = GET(&quot;https://data.cityofnewyork.us/resource/waf7-5gvc.json&quot;) %&gt;% 
+</div>
+</div>
+<div id="getting-the-data-using-json" class="section level2">
+<h2>Getting the data using JSON</h2>
+<pre class="r"><code>nyc_water_json = GET(&quot;https://data.cityofnewyork.us/resource/waf7-5gvc.json&quot;) %&gt;%
   content(&quot;text&quot;) %&gt;%
   jsonlite::fromJSON() %&gt;%
   as_tibble()</code></pre>
-<pre class="r"><code>brfss = 
-  GET(&quot;https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.csv?accessType=DOWNLOAD&quot;) %&gt;% 
-  content(&quot;parsed&quot;)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   .default = col_character(),
-##   YearStart = col_integer(),
-##   YearEnd = col_integer(),
-##   Data_Value = col_double(),
-##   Data_Value_Alt = col_double(),
-##   Low_Confidence_Limit = col_double(),
-##   High_Confidence_Limit = col_double(),
-##   Sample_Size = col_integer()
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<pre class="r"><code>poke = GET(&quot;http://pokeapi.co/api/v2/pokemon/1&quot;) %&gt;%
-  content()</code></pre>
-</div>
 </div>
 
 
