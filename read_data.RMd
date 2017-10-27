@@ -143,3 +143,5 @@ poke = GET("http://pokeapi.co/api/v2/pokemon/1") %>%
   content()
 
 ```
+
+
